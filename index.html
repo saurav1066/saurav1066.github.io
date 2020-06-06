@@ -22,7 +22,15 @@
   <h2 id="fullName"></h2>
   <p id="bio"></p>
   <p>Check me on <a id="gitLink">Github</a></p>
-  <a class="twitter-timeline" data-width="400" data-height="400" data-theme="dark" href="https://twitter.com/SauravA45500821?ref_src=twsrc%5Etfw">Tweets by SauravA45500821</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+  <h3>My Projects</h3>
+  
+  <div id="myRepos">
+
+  </div>
+
+
+  <a class="twitter-timeline" data-width="300" data-height="400" data-theme="dark" href="https://twitter.com/SauravA45500821?ref_src=twsrc%5Etfw">Tweets by Saurav Adhikari</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
   </div>
 
 
@@ -31,16 +39,28 @@
     fetch("https://api.github.com/users/saurav1066")
     .then(response => response.json())
     .then(function(data) {
-      console.log(data)
+      // console.log(data)
       document.getElementById("profileImg").src = data['avatar_url']
       document.getElementById("fullName").textContent = data["name"]
       document.getElementById("bio").textContent = data["bio"]
       document.getElementById("gitLink").href = data["html_url"]
       document.getElementById("mainContainer").hidden = false
       document.getElementById("loading").hidden = true
+      
     })
 
+    fetch("https://api.github.com/users/saurav1066/repos")
+    .then(response => response.json())
+    .then(function(data){
+      data.forEach(value => {
+        // console.log(value['name'])
+        var myRepos = document.getElementById("myRepos")
+        var repoElements = document.createElement("div")
+        myRepos.appendChild(repoElements)
+        repoElements.innerHTML = value['name']
 
+      });
+    })
 
   </script>
   
