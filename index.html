@@ -9,6 +9,34 @@
     .main {
       text-align: center;
     }
+
+    .container{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .innerDiv {
+      border: 5px solid green;
+      padding: 10px;
+      margin: 5px;
+      float: left;
+    }
+
+    a{
+      color:black;
+      font-family: sans-serif;
+      font-size: medium;
+      font-style: bold;
+      text-decoration: none;
+    }
+
+    @media(max-width: 300px) {
+      .innerDiv {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -25,7 +53,7 @@
 
   <h3>My Projects</h3>
   
-  <div id="myRepos">
+  <div class ="container" id="myRepos">
 
   </div>
 
@@ -53,11 +81,15 @@
     .then(response => response.json())
     .then(function(data){
       data.forEach(value => {
-        // console.log(value['name'])
+        // console.log(value)
+        var link = value["svn_url"]
+        var name = value["name"]
         var myRepos = document.getElementById("myRepos")
         var repoElements = document.createElement("div")
+        repoElements.className = "innerDiv"
         myRepos.appendChild(repoElements)
-        repoElements.innerHTML = value['name']
+        repoElements.innerHTML = `<a href = ${link}>${name}</a>`
+        
 
       });
     })
