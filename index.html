@@ -4,23 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Saurav Adhikari</title>
-  <style>
-    .main {
-      text-align: center;
+  <title>Document</title>
+
+  <style type="text/css">
+    body{
+      background-image: linear-gradient(#29323c, #485563);
+    }
+
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 40%;
+    }
+
+    .main{
+      width:50%;
+      overflow: auto;
+      float: left;
+      
     }
 
     .container{
-      justify-content: center;
-      display: flex;
-      flex-wrap: wrap;
+      width: auto;
+      float:left;
+      /* border: 5px solid white; */
+      padding: 10px;
     }
-    
+
+
+    .innerdiv{
+      background-image: linear-gradient(to left, grey, rgb(66, 59, 59));
+      width: 20%;
+      /* border: 5px solid white; */
+      padding: 50px;
+      float: right;
+      margin: 10%;
+    }
+
+    header{
+      text-align: center;
+      font-size: large;
+    }
+
+
     .innerDiv {
-      border: 5px solid green;
+      border: 5px solid whitesmoke;
+      border-radius: 2px;
+      float: left;
+      width: auto;
       padding: 10px;
       margin: 5px;
-      float: left;
     }
 
     a{
@@ -30,38 +64,37 @@
       font-style: bold;
       text-decoration: none;
     }
-
-    @media(max-width: 300px) {
-      .innerDiv {
-        width: 100%;
-      }
-    }
-
+    
   </style>
+
 </head>
 <body>
-
   <div id="loading">
     loading...
   </div>
-  <div class="main" id="mainContainer" hidden>
+  <div class="container" id="mainContainer" hidden>
     <img height="100" width="100" id="profileImg">
 
   <h2 id="fullName"></h2>
   <p id="bio"></p>
   <p>Check me on <a id="gitLink">Github</a></p>
 
-  <h3>My Projects</h3>
-  
-  <div class ="container" id="myRepos">
-
-  </div>
-
-
   <a class="twitter-timeline" data-width="300" data-height="400" data-theme="dark" href="https://twitter.com/SauravA45500821?ref_src=twsrc%5Etfw">Tweets by Saurav Adhikari</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
   </div>
 
 
+  <!-- <div class="container">
+    <img src="/home/saurav/Desktop/mypics/DSC_8907.JPG" alt="my pic">
+    <h1>Saurav Adhikari</h1>
+    <p>Happy Coding</p>
+  </div> -->
+
+  <div class="innerdiv" id="myRepos">
+
+    <header>My Projects</header>
+   
+  </div>
 
   <script>
     fetch("https://api.github.com/users/saurav1066")
@@ -95,8 +128,6 @@
     })
 
   </script>
-  
-
 
 </body>
 </html>
